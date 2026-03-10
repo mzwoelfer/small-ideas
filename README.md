@@ -44,8 +44,6 @@ Content here...
 }
 ```
 
-That's it.
-
 ## Linking Between Posts
 
 Standard Markdown links work:
