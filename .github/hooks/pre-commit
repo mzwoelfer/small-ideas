@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+"""
+Pre-commit hook: slugifies filenames in posts/ and assets/.
+
+Renames any staged file with spaces or uppercase to kebab-case,
+then re-stages the renamed file.
+
+Install:
+    cp .github/hooks/pre-commit .git/hooks/pre-commit
+    chmod +x .git/hooks/pre-commit
+"""
+
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+WATCHED_DIRS = ("posts/", "assets/")
+
+
+def slugify(name: str) -> str:
+    stem = Path(name).stem
+    suffix = Path(name).suffix.lower()
+    slug = stem.lower()
+    slug = re.sub(r"[^\w\s-]", "", slug)   # drop special chars (keep hyphens)
+    slug = re.sub(r"[\s_]+", "-", slug)     # spaces/underscores → hyphen
+    slug = re.sub(r"-+", "-", slug)         # collapse multiple hyphens
+    slug = slug.strip("-")
+    return slug + suffix
+
+
+def staged_files() -> list[str]:
+    result = subprocess.run(
+        ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"],
+        capture_output=True, text=True
+    )
+    return result.stdout.splitlines()
+
+
+def git_mv(src: Path, dst: Path):
+    subprocess.run(["git", "mv", str(src), str(dst)], check=True)
+    print(f"  renamed: {src.name} → {dst.name}")
+
+
+def main():
+    files = staged_files()
+    renamed = False
+
+    for f in files:
+        if not any(f.startswith(d) for d in WATCHED_DIRS):
+            continue
+
+        path = Path(f)
+        new_name = slugify(path.name)
+
+        if new_name == path.name:
+            continue  # already clean
+
+        new_path = path.parent / new_name
+
+        if new_path.exists():
+            print(f"  ✗ cannot rename {path.name} → {new_name}: target already exists")
+            sys.exit(1)
+
+        git_mv(path, new_path)
+        renamed = True
+
+    if renamed:
+        print("\nFiles were renamed. Please review the changes and commit again.")
+        sys.exit(1)  # abort commit so user sees the renames
+
+
+if __name__ == "__main__":
+    main()
