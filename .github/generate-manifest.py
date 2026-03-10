@@ -7,6 +7,7 @@ from pathlib import Path
 
 POSTS_DIR = Path(__file__).parent.parent / "posts"
 
+
 def parse_frontmatter(text):
     match = re.match(r"^---\n(.*?)\n---", text, re.DOTALL)
     if not match:
@@ -24,6 +25,7 @@ def parse_frontmatter(text):
         meta[key] = val
     return meta
 
+
 posts = []
 for md_file in POSTS_DIR.glob("*.md"):
     text = md_file.read_text(encoding="utf-8")
@@ -31,13 +33,15 @@ for md_file in POSTS_DIR.glob("*.md"):
     if not meta.get("title"):
         print(f"  skipping {md_file.name} — no title in frontmatter")
         continue
-    posts.append({
-        "slug": md_file.stem,
-        "title": meta.get("title", md_file.stem),
-        "date": meta.get("date", "1970-01-01"),
-        "tags": meta.get("tags", []),
-        "description": meta.get("description", ""),
-    })
+    posts.append(
+        {
+            "slug": md_file.stem,
+            "title": meta.get("title", md_file.stem),
+            "date": meta.get("date", "1970-01-01"),
+            "tags": meta.get("tags", []),
+            "description": meta.get("description", ""),
+        }
+    )
 
 posts.sort(key=lambda p: p["date"], reverse=True)
 
