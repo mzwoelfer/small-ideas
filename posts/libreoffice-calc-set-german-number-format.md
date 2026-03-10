@@ -20,6 +20,6 @@ Tools --> Options --> Language Settings --> Languages
 Locale (number formatting): German (Germany) `100,45€`.
 Default langauge: (Only for UI stuff, not number format)
 
-#### Per cell formatting
+### Per cell formatting
 
 Format --> Cells --> Numbers tab --> format code area language dropdown to german.
