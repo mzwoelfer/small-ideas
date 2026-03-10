@@ -10,5 +10,15 @@
       "locale"
     ],
     "description": "Set the German number formatting (`,` as decimal separator) while keeping the document language in English."
+  },
+  {
+    "slug": "how-to-write-effective-email",
+    "title": "How to Write effective E-Mails",
+    "date": "2022-06-01",
+    "tags": [
+      "communication",
+      "email"
+    ],
+    "description": "> You don't need to read the mail to understand it."
   }
 ]
