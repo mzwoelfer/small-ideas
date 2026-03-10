@@ -17,7 +17,7 @@ Set the german number formatting (`,` as decimal separator). Keeping the documen
 STEPS:
 Tools --> Options --> Language Settings --> Languages
 
-Locale (number formatting): German (Germany) `100,45€`
+Locale (number formatting): German (Germany) `100,45€`.
 Default langauge: (Only for UI stuff, not number format)
 
 #### Per cell formatting
