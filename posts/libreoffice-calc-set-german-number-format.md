@@ -12,14 +12,16 @@ author: "Martin"
 
 # [[LibreOffice Calc - set german number format]]
 
-Set the German number formatting (`,` as decimal separator). Keeping the document language in English.
+Set the German number formatting (`,` as decimal separator) while keeping the document language in English.
 
-STEPS:
-Tools --> Options --> Language Settings --> Languages
+### Global setting
 
-Locale (number formatting): German (Germany) `100,45€`.
-Default langauge: (Only for UI stuff, not number format)
+1. Tools → Options → Language Settings → Languages
+2. Set **Locale (number formatting)** to `German (Germany)`
+3. Result: `100,45€`
 
-### Per cell formatting
+> Default language only affects the UI, not number formatting.
 
-Format --> Cells --> Numbers tab --> format code area language dropdown to german.
+### Per-cell formatting
+
+Format → Cells → Numbers tab → set language dropdown to German.
