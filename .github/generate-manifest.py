@@ -83,6 +83,7 @@ def parse_frontmatter(text):
             continue
         key, _, val = line.partition(":")
         key = key.strip()
+        key = re.sub(r"^[^\w]+", "", key).strip()  # strip leading emoji/non-word chars
         val = val.strip()
         if key == "tags":
             meta["tags"] = parse_tags(val, lines, i + 1)
