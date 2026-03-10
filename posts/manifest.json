@@ -10,5 +10,17 @@
       "locale"
     ],
     "description": "Set the german number formatting (`,` as decimal separator). Keeping the document language in English."
+  },
+  {
+    "slug": "docker-101",
+    "title": "Docker Networking 101 - Bridges, Hosts, and Why Your Container Can't See the Internet",
+    "date": "2025-03-01",
+    "tags": [
+      "docker",
+      "networking",
+      "linux",
+      "containers"
+    ],
+    "description": "A mental model for Docker's network modes. Explains bridge, host, none, and macvlan with actual use cases."
   }
 ]
