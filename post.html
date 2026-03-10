@@ -257,8 +257,9 @@
         return markdown.replace(/\[\[([^\]]+)\]\]/g, (_, text) => {
           const slug = text
             .toLowerCase()
-            .replace(/\s+/g, "-")
-            .replace(/[^\w-]/g, "");
+            .replace(/[^\w\s-]/g, "")
+            .replace(/[\s-]+/g, "-")
+            .trim();
           return `[${text}](post.html?slug=${slug})`;
         });
       }
