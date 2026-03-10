@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "slug": "libreoffice-calc-set-german-number-format",
+    "title": "LibreOffice Calc - set german number format",
+    "date": "1970-01-01",
+    "tags": [
+      "libreoffice",
+      "calc",
+      "formatting",
+      "locale"
+    ],
+    "description": "Set the german number formatting (`,` as decimal separator). Keeping the document language in English."
+  }
+]
