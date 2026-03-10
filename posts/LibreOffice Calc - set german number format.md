@@ -22,4 +22,4 @@ Default langauge: (Only for UI stuff, not number format)
 
 #### Per cell formatting
 
-FOramt --> Cells --> Numbers tab --> format code area language dropdown to german.
+Format --> Cells --> Numbers tab --> format code area language dropdown to german.
