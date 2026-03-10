@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading…</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["IBM Plex Sans", "sans-serif"],
+              mono: ["IBM Plex Mono", "monospace"],
+            },
+            colors: {
+              ink: "#1a1a1a",
+              muted: "#6b6b6b",
+              rule: "#e2e2e2",
+              accent: "#2563eb",
+              tag: "#f0f4ff",
+            },
+            typography: {
+              DEFAULT: {
+                css: {
+                  maxWidth: "none",
+                },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "IBM Plex Sans", sans-serif;
+      }
+      .tag {
+        font-family: "IBM Plex Mono", monospace;
+      }
+
+      /* Prose styles — hand-rolled, no @tailwindcss/typography needed */
+      .prose {
+        color: #1a1a1a;
+        line-height: 1.75;
+      }
+      .prose h1 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin: 2.5rem 0 1rem;
+        line-height: 1.25;
+      }
+      .prose h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 2rem 0 0.75rem;
+        line-height: 1.3;
+        border-bottom: 1px solid #e2e2e2;
+        padding-bottom: 0.25rem;
+      }
+      .prose h3 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin: 1.5rem 0 0.5rem;
+      }
+      .prose p {
+        margin: 1rem 0;
+        font-size: 0.95rem;
+      }
+      .prose a {
+        color: #2563eb;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .prose a:hover {
+        text-decoration: none;
+      }
+      .prose ul {
+        list-style: disc;
+        padding-left: 1.5rem;
+        margin: 1rem 0;
+        font-size: 0.95rem;
+      }
+      .prose ol {
+        list-style: decimal;
+        padding-left: 1.5rem;
+        margin: 1rem 0;
+        font-size: 0.95rem;
+      }
+      .prose li {
+        margin: 0.3rem 0;
+      }
+      .prose pre {
+        background: #f4f4f4;
+        border: 1px solid #e2e2e2;
+        border-radius: 4px;
+        padding: 1rem 1.25rem;
+        overflow-x: auto;
+        margin: 1.25rem 0;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.82rem;
+        line-height: 1.6;
+      }
+      .prose code {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.82rem;
+        background: #f4f4f4;
+        padding: 0.1em 0.35em;
+        border-radius: 3px;
+      }
+      .prose pre code {
+        background: none;
+        padding: 0;
+        font-size: inherit;
+      }
+      .prose blockquote {
+        border-left: 3px solid #2563eb;
+        padding-left: 1rem;
+        color: #6b6b6b;
+        margin: 1.25rem 0;
+        font-style: italic;
+      }
+      .prose hr {
+        border: none;
+        border-top: 1px solid #e2e2e2;
+        margin: 2rem 0;
+      }
+      .prose img {
+        max-width: 100%;
+        border-radius: 4px;
+        margin: 1.5rem 0;
+      }
+      .prose strong {
+        font-weight: 600;
+      }
+      .prose table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        margin: 1.25rem 0;
+      }
+      .prose th {
+        text-align: left;
+        border-bottom: 2px solid #e2e2e2;
+        padding: 0.5rem 0.75rem;
+        font-weight: 600;
+      }
+      .prose td {
+        border-bottom: 1px solid #e2e2e2;
+        padding: 0.5rem 0.75rem;
+      }
+
+      /* Wiki-style internal links */
+      .prose a.wiki-link {
+        color: #2563eb;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-ink max-w-2xl mx-auto px-6 py-16">
+    <nav class="mb-12">
+      <a
+        href="index.html"
+        class="text-sm text-muted hover:text-accent transition-colors font-mono"
+        >← back</a
+      >
+    </nav>
+
+    <!-- Post header (populated by JS) -->
+    <header id="post-header" class="mb-10"></header>
+
+    <!-- Rendered markdown -->
+    <article id="post-body" class="prose"></article>
+
+    <footer
+      class="mt-16 pt-8 border-t border-rule text-xs text-muted font-mono"
+    >
+      <a href="index.html" class="hover:text-accent transition-colors"
+        >← all posts</a
+      >
+      &nbsp;·&nbsp;
+      <a
+        href="https://github.com/yourusername/blog"
+        class="hover:text-accent transition-colors"
+        >github</a
+      >
+    </footer>
+
+    <script>
+      // ── Frontmatter parser ───────────────────────────────────────────────────
+      function parseFrontmatter(raw) {
+        const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+        if (!match) return { meta: {}, body: raw };
+        const meta = {};
+        match[1].split("\n").forEach((line) => {
+          const [key, ...rest] = line.split(":");
+          if (!key) return;
+          let val = rest.join(":").trim();
+          // Parse arrays like [a, b, c]
+          if (val.startsWith("[") && val.endsWith("]")) {
+            val = val
+              .slice(1, -1)
+              .split(",")
+              .map((s) => s.trim().replace(/^["']|["']$/g, ""));
+          }
+          meta[key.trim()] = val;
+        });
+        return { meta, body: match[2] };
+      }
+
+      // ── Wiki-link transformer: [[Page Name]] → clickable link ────────────────
+      function transformWikiLinks(markdown) {
+        return markdown.replace(/\[\[([^\]]+)\]\]/g, (_, text) => {
+          const slug = text
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/[^\w-]/g, "");
+          return `[${text}](post.html?slug=${slug})`;
+        });
+      }
+
+      // ── Resolve relative asset paths ─────────────────────────────────────────
+      function resolveAssets(markdown) {
+        // Rewrite ![alt](assets/...) to point to the assets folder from root
+        return markdown.replace(
+          /!\[([^\]]*)\]\((?!http)(assets\/[^)]+)\)/g,
+          "![$1]($2)",
+        );
+      }
+
+      // ── Render ────────────────────────────────────────────────────────────────
+      function formatDate(dateStr) {
+        const d = new Date(dateStr + "T12:00:00");
+        return d.toLocaleDateString("en-GB", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      }
+
+      async function loadPost() {
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get("slug");
+
+        if (!slug) {
+          document.getElementById("post-body").innerHTML =
+            "<p>No post specified.</p>";
+          return;
+        }
+
+        const res = await fetch(`posts/${slug}.md`);
+        if (!res.ok) {
+          document.title = "404";
+          document.getElementById("post-body").innerHTML =
+            "<p>Post not found.</p>";
+          return;
+        }
+
+        const raw = await res.text();
+        const { meta, body } = parseFrontmatter(raw);
+
+        // Title
+        document.title = meta.title || slug;
+
+        // Header
+        const tags = Array.isArray(meta.tags) ? meta.tags : [];
+        document.getElementById("post-header").innerHTML = `
+        <div class="flex items-center gap-3 mb-3">
+          <time class="text-xs text-muted font-mono">${meta.date ? formatDate(meta.date) : ""}</time>
+          ${tags.map((t) => `<span class="tag text-xs px-2 py-0.5 bg-tag text-accent rounded">${t}</span>`).join("")}
+        </div>
+      `;
+
+        // Render markdown
+        const processed = resolveAssets(transformWikiLinks(body));
+        document.getElementById("post-body").innerHTML =
+          marked.parse(processed);
+      }
+
+      loadPost().catch((err) => {
+        document.getElementById("post-body").innerHTML =
+          `<p style="color:red">Error: ${err.message}</p>`;
+        console.error(err);
+      });
+    </script>
+  </body>
+</html>
