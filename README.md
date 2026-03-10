@@ -2,78 +2,139 @@
 
 A minimal static blog. No build step, no framework. Just HTML + [marked.js](https://marked.js.org/) + Tailwind CDN.
 
-Hosted via GitHub Pages.
+Hosted via GitHub Pages at [mzwoelfer.github.io/small-ideas](https://mzwoelfer.github.io/small-ideas).
 
 ## Structure
 
 ```
-├── index.html           # Homepage — post list + search
-├── post.html            # Post renderer (reads ?slug= param)
+├── index.html                  # Homepage — post list + search
+├── post.html                   # Post renderer (reads ?slug= param)
+├── .nojekyll                   # Tells GitHub Pages to serve .md files as-is
 ├── posts/
-│   ├── manifest.json    # Post metadata (title, date, tags, description)
-│   └── *.md             # Post content with YAML frontmatter
-└── assets/              # Images and other static files
+│   ├── manifest.json           # Auto-generated post index (do not edit manually)
+│   └── *.md                    # Post content
+├── assets/                     # Images and other static files
+└── .github/
+    ├── generate-manifest.py    # Manifest generator script
+    ├── hooks/
+    │   ├── pre-commit          # Slugifies filenames before commit
+    │   └── install.sh          # Run once after cloning
+    └── workflows/
+        └── generate-manifest.yml  # CI: regenerates manifest, then deploys Pages
 ```
 
 ## Adding a Post
 
-1. Create `posts/your-post-slug.md` with frontmatter:
+Just drop a `.md` file into `posts/` and push. The CI pipeline handles the rest:
+
+1. Detects the new/changed `.md` file
+2. Regenerates `manifest.json` from frontmatter
+3. Commits the updated manifest back to `main`
+4. Deploys to GitHub Pages
+
+**Do not edit `manifest.json` manually** — it gets overwritten on every push to `posts/`.
+
+### Frontmatter
+
+The script is designed to work with Obsidian notes directly. All fields are optional:
 
 ```markdown
 ---
-title: Your Post Title
-date: 2025-04-01
-tags: [tag1, tag2]
-description: One-line summary shown on the homepage.
+📅 created: 10.03.2026 13:02
+tags:
+  - libreoffice
+  - linux
+author: "Martin"
 ---
 
-# Your Post Title
+## My Post Title
 
-Content here...
+First paragraph becomes the description on the homepage.
 ```
 
-2. Add an entry to `posts/manifest.json`:
+| Field               | Required | Notes                                                                                                          |
+| ------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `title`             | No       | Falls back to first heading, then filename                                                                     |
+| `created` or `date` | No       | Accepts `DD.MM.YYYY`, `YYYY-MM-DD`, with or without time. Falls back to `1970-01-01`                           |
+| `tags`              | No       | Block list (`- tag`) or inline (`[a, b]`). Obsidian date tags like `March 2026` are filtered out automatically |
+| `description`       | No       | Falls back to first paragraph of the post body                                                                 |
+| `aliases`, `author` | No       | Parsed but ignored                                                                                             |
 
-```json
-{
-  "slug": "your-post-slug",
-  "title": "Your Post Title",
-  "date": "2025-04-01",
-  "tags": ["tag1", "tag2"],
-  "description": "One-line summary shown on the homepage."
-}
+Emoji prefixes on keys (e.g. `📅 created`) are handled — Obsidian adds these.
+
+### Filename conventions
+
+Filenames must be kebab-case — the filename becomes the URL slug:
+
 ```
+posts/my-post-title.md  →  /post.html?slug=my-post-title
+```
+
+The pre-commit hook (see below) handles renaming automatically.
 
 ## Linking Between Posts
 
-Standard Markdown links work:
+Standard Markdown links:
 
 ```markdown
 [See also: SSH hardening](post.html?slug=setting-up-ssh-hardening)
 ```
 
-Wiki-style links also work and auto-convert:
+Wiki-style links (Obsidian compatible) — auto-converted at render time:
 
 ```markdown
 [[SSH Hardening on Linux]]
 ```
 
-The slug is derived by lowercasing and hyphenating the text.
+The slug is derived by lowercasing and hyphenating the link text, so `[[SSH Hardening on Linux]]` resolves to `post.html?slug=ssh-hardening-on-linux`. This must match the `.md` filename exactly.
 
 ## Images
 
-Put images in `assets/` and reference them as:
+Put images in `assets/` and reference them with a relative path:
 
 ```markdown
-![alt text](assets/your-image.png)
+![alt text](assets/my-image.png)
 ```
 
-## GitHub Pages Setup
+Filenames with spaces will break the URL — use the pre-commit hook or rename manually to kebab-case.
 
-1. Push to a repo.
-2. Go to **Settings → Pages**.
-3. Set source to `main` branch, `/ (root)`.
-4. Done — no Actions needed.
+## Pre-commit Hook
 
-> The site uses `fetch()` to load posts, which requires a real HTTP server.  
-> **It will not work when opened as a local `file://` URL** — use `python3 -m http.server` for local dev.
+Automatically renames files with spaces, uppercase, or special characters in `posts/` and `assets/` to kebab-case before they are committed.
+
+Install once after cloning:
+
+```bash
+bash .github/hooks/install.sh
+```
+
+If a file gets renamed, the commit is aborted so you can review the changes. Just commit again and it goes through.
+
+> Git hooks are local only — they are not pushed to GitHub. Anyone cloning the repo needs to run `install.sh` once.
+
+## CI Pipeline
+
+The GitHub Actions workflow in `.github/workflows/generate-manifest.yml` runs two jobs sequentially when a `posts/*.md` file changes:
+
+```
+push (posts/*.md changed)
+  └── generate   — runs generate-manifest.py, commits manifest.json back to main
+        └── deploy — checks out main (with the fresh manifest), deploys to Pages
+```
+
+The two jobs are chained with `needs: generate` to avoid a race condition where Pages deploys before the manifest is updated.
+
+**Required GitHub settings:**
+
+- Settings → Actions → General → Workflow permissions → **Read and write permissions**
+- Settings → Pages → Source → **GitHub Actions**
+
+## Local Development
+
+The site uses `fetch()` which does not work over `file://`. Serve it locally with:
+
+```bash
+python3 -m http.server
+```
+
+Then open `http://localhost:8000`.
