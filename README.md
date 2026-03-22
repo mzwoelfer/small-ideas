@@ -1,15 +1,15 @@
 # Blog
 
-A minimal static blog. No build step, no framework. Just HTML + [marked.js](https://marked.js.org/) + Tailwind CDN.
+Minimal static blog. No build step, no framework. Just HTML + [marked.js](https://marked.js.org/) + Tailwind CDN.
 
 Hosted via GitHub Pages at [mzwoelfer.github.io/small-ideas](https://mzwoelfer.github.io/small-ideas).
 
 ## Structure
 
 ```
-├── index.html                  # Homepage — post list + search
-├── post.html                   # Post renderer (reads ?slug= param)
-├── .nojekyll                   # Tells GitHub Pages to serve .md files as-is
+├── index.html                  # Homepage.
+├── post.html                   # renders posts (reads ?slug= param)
+├── .nojekyll                   # GitHub Pages: serve .md files as-is
 ├── posts/
 │   ├── manifest.json           # Auto-generated post index (do not edit manually)
 │   └── *.md                    # Post content
@@ -36,7 +36,7 @@ Just drop a `.md` file into `posts/` and push. The CI pipeline handles the rest:
 
 ### Frontmatter
 
-The script is designed to work with Obsidian notes directly. All fields are optional:
+The script works with Obsidian notes directly. All fields are optional:
 
 ```markdown
 ---
@@ -60,17 +60,17 @@ First paragraph becomes the description on the homepage.
 | `description`       | No       | Falls back to first paragraph of the post body                                                                 |
 | `aliases`, `author` | No       | Parsed but ignored                                                                                             |
 
-Emoji prefixes on keys (e.g. `📅 created`) are handled — Obsidian adds these.
+Emoji prefixes on keys (e.g. `📅 created`) are handled.
 
 ### Filename conventions
 
-Filenames must be kebab-case — the filename becomes the URL slug:
+Filenames must be kebab-case. The filename becomes the URL slug:
 
 ```
 posts/my-post-title.md  →  /post.html?slug=my-post-title
 ```
 
-The pre-commit hook (see below) handles renaming automatically.
+The pre-commit hook (see below) renames automatically.
 
 ## Linking Between Posts
 
@@ -80,7 +80,7 @@ Standard Markdown links:
 [See also: SSH hardening](post.html?slug=setting-up-ssh-hardening)
 ```
 
-Wiki-style links (Obsidian compatible) — auto-converted at render time:
+Wiki-style links (Obsidian compatible). Auto-converted at render time:
 
 ```markdown
 [[SSH Hardening on Linux]]
@@ -96,11 +96,13 @@ Put images in `assets/` and reference them with a relative path:
 ![alt text](assets/my-image.png)
 ```
 
-Filenames with spaces will break the URL — use the pre-commit hook or rename manually to kebab-case.
+Filenames with spaces will break the URL.
+Use the pre-commit hook or rename manually to kebab-case.
 
 ## Pre-commit Hook
 
-Automatically renames files with spaces, uppercase, or special characters in `posts/` and `assets/` to kebab-case before they are committed.
+Renames files to kebab-case.
+ALl files in `posts/` and `assets/`.
 
 Install once after cloning:
 
@@ -110,7 +112,7 @@ bash .github/hooks/install.sh
 
 If a file gets renamed, the commit is aborted so you can review the changes. Just commit again and it goes through.
 
-> Git hooks are local only — they are not pushed to GitHub. Anyone cloning the repo needs to run `install.sh` once.
+> Git hooks are local only. After cloning the repo needs run `install.sh`.
 
 ## CI Pipeline
 
