@@ -12,6 +12,18 @@
     "description": "Set the German number formatting (`,` as decimal separator) while keeping the document language in English."
   },
   {
+    "slug": "name-your-files-like-youll-search-for-them-in-three-years",
+    "title": "Name your files like you'll search for them in three years",
+    "date": "2023-02-12",
+    "tags": [
+      "files",
+      "organization",
+      "naming",
+      "productivity"
+    ],
+    "description": "Most file systems let you sort by name. Use it!"
+  },
+  {
     "slug": "how-to-write-effective-email",
     "title": "How to Write effective E-Mails",
     "date": "2022-06-01",
