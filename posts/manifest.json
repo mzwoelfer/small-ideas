@@ -1,5 +1,38 @@
 [
   {
+    "slug": "fix-drone-falling-out-of-sky-esc-motor-desyncs",
+    "title": "Fix Drone falling out of sky - ESC Motor Desyncs",
+    "date": "2026-04-11",
+    "tags": [
+      "fpv",
+      "drone",
+      "esc"
+    ],
+    "description": "Motor desyncs cause the \"death roll\" where a motor stalls under high load or rapid throttle changes. These adjustments help the ESC maintain sync with the motor's position."
+  },
+  {
+    "slug": "jlu-gibt-rinderherde-am-oberen-hardthof-auf",
+    "title": "JLU gibt Rinderherde am Oberen Hardthof auf",
+    "date": "2026-04-09",
+    "tags": [
+      "jlu",
+      "giessen",
+      "landwirtschaft",
+      "studium"
+    ],
+    "description": "Die [[Justus-Liebig-Universität Gießen]] (JLU) gibt Mitte 2026 ihre Rinderherde mit 32 Milchkühen am Oberen Hardthof auf. Auslöser sind finanzielle Einsparungen von rund 25 Millionen Euro pro Jahr. [1"
+  },
+  {
+    "slug": "chrony-configuration-check-multiple-bindcmdaddress-directives",
+    "title": "Chrony Configuration Check - Multiple bindcmdaddress Directives",
+    "date": "2026-04-09",
+    "tags": [
+      "chrony",
+      "linux"
+    ],
+    "description": "Chrony listens to the last entry it finds. While it officially supports only one `bindcmdaddress` per address family (IPv4/IPv6).[1]"
+  },
+  {
     "slug": "libreoffice-calc-set-german-number-format",
     "title": "LibreOffice Calc - set german number format",
     "date": "2026-03-10",
@@ -12,6 +45,62 @@
     "description": "Set the German number formatting (`,` as decimal separator) while keeping the document language in English."
   },
   {
+    "slug": "frankfurter-straße-107-5200qm-gut-angebunden-einfach-leer",
+    "title": "Frankfurter Straße 107 - 5.200qm gut angebunden einfach leer",
+    "date": "2026-01-02",
+    "tags": [
+      "giessen",
+      "leerstand",
+      "immobilien",
+      "jlu"
+    ],
+    "description": "Die **Frankfurter Straße 107** in Gießen ist ein ehemaliges Universitätsgebäude der Justus-Liebig-Universität (JLU), das seit über einem Jahrzehnt, seit 2012, leer steht."
+  },
+  {
+    "slug": "create-a-uuid-using-linux-basic-tools",
+    "title": "Create a UUID using Linux basic tools",
+    "date": "2025-05-13",
+    "tags": [
+      "linux",
+      "uuid"
+    ],
+    "description": "Creat a random [[UUID]] in plain Linux: ```bash cat /proc/sys/kernel/random/uuid ```"
+  },
+  {
+    "slug": "bind-rootless-containers-to-privileged-ports",
+    "title": "Bind rootless containers to privileged ports",
+    "date": "2025-04-06",
+    "tags": [
+      "nerdctl",
+      "containerd",
+      "ports",
+      "container",
+      "rootless"
+    ],
+    "description": "To bind a port from [[rootless]] containers to [[privileged ports]] in Linux you can: - Allow one binary to use unprivileged ports, setting `CAP_NET_BIND_SERVICE`to rootlesskit binary - Lower the syst"
+  },
+  {
+    "slug": "verify-fstab-is-correctly-edited",
+    "title": "Verify fstab is correctly edited",
+    "date": "2024-10-10",
+    "tags": [
+      "linux",
+      "fstab"
+    ],
+    "description": "Verify mounted partitions in [[fstab]]. ```SHELL sudo findmnt --verify --verbose ```"
+  },
+  {
+    "slug": "land-use-solar-energy-potential-usa",
+    "title": "Land Use & Solar Energy Potential (USA)",
+    "date": "2023-11-13",
+    "tags": [
+      "electricity",
+      "usa",
+      "land-use"
+    ],
+    "description": "Solar power is NOT a \"space problem.\""
+  },
+  {
     "slug": "name-your-files-like-youll-search-for-them-in-three-years",
     "title": "Name your files like you'll search for them in three years",
     "date": "2023-02-12",
@@ -22,6 +111,16 @@
       "productivity"
     ],
     "description": "Most file systems let you sort by name. Use it!"
+  },
+  {
+    "slug": "find-fqdn-for-windows-server",
+    "title": "Find FQDN for Windows Server",
+    "date": "2022-07-25",
+    "tags": [
+      "windows",
+      "fqdn"
+    ],
+    "description": "**Where to Find the FQDN?**"
   },
   {
     "slug": "how-to-write-effective-email",
