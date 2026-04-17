@@ -11,6 +11,16 @@
     "description": "Motor desyncs cause the \"death roll\" where a motor stalls under high load or rapid throttle changes. These adjustments help the ESC maintain sync with the motor's position."
   },
   {
+    "slug": "chrony-configuration-check-multiple-bindcmdaddress-directives",
+    "title": "Chrony Configuration Check - Multiple bindcmdaddress Directives",
+    "date": "2026-04-09",
+    "tags": [
+      "chrony",
+      "linux"
+    ],
+    "description": "Chrony listens to the last entry it finds. While it officially supports only one `bindcmdaddress` per address family (IPv4/IPv6).[1]"
+  },
+  {
     "slug": "jlu-gibt-rinderherde-am-oberen-hardthof-auf",
     "title": "JLU gibt Rinderherde am Oberen Hardthof auf",
     "date": "2026-04-09",
@@ -21,16 +31,6 @@
       "studium"
     ],
     "description": "Die [[Justus-Liebig-Universität Gießen]] (JLU) gibt Mitte 2026 ihre Rinderherde mit 32 Milchkühen am Oberen Hardthof auf. Auslöser sind finanzielle Einsparungen von rund 25 Millionen Euro pro Jahr. [1"
-  },
-  {
-    "slug": "chrony-configuration-check-multiple-bindcmdaddress-directives",
-    "title": "Chrony Configuration Check - Multiple bindcmdaddress Directives",
-    "date": "2026-04-09",
-    "tags": [
-      "chrony",
-      "linux"
-    ],
-    "description": "Chrony listens to the last entry it finds. While it officially supports only one `bindcmdaddress` per address family (IPv4/IPv6).[1]"
   },
   {
     "slug": "libreoffice-calc-set-german-number-format",
@@ -45,7 +45,7 @@
     "description": "Set the German number formatting (`,` as decimal separator) while keeping the document language in English."
   },
   {
-    "slug": "frankfurter-straße-107-5200qm-gut-angebunden-einfach-leer",
+    "slug": "frankfurter-strasse-107-5200qm-gut-angebunden-einfach-leer",
     "title": "Frankfurter Straße 107 - 5.200qm gut angebunden einfach leer",
     "date": "2026-01-02",
     "tags": [

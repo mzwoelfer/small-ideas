@@ -11,6 +11,7 @@ Handles Obsidian-style frontmatter:
 
 import json
 import re
+import unicodedata
 from pathlib import Path
 
 POSTS_DIR = Path(__file__).parent.parent / "posts"
@@ -95,6 +96,10 @@ def parse_frontmatter(text):
 
 def slugify(name):
     slug = name.lower()
+    slug = slug.replace("ß", "ss")
+    slug = slug.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
+    slug = unicodedata.normalize("NFKD", slug)
+    slug = slug.encode("ascii", "ignore").decode("ascii")
     slug = re.sub(r"[^\w\s-]", "", slug)
     slug = re.sub(r"[\s_]+", "-", slug)
     slug = re.sub(r"-+", "-", slug)
