@@ -58,14 +58,23 @@
     </header>
 
     <!-- Search -->
-    <div class="mb-10">
+    <div class="mb-10 relative">
       <input
         id="search"
         type="text"
         placeholder="Search articles..."
-        class="w-full border border-rule rounded px-4 py-2.5 text-sm font-mono focus:outline-none focus:border-accent transition-colors"
-        oninput="filterPosts(this.value)"
+        class="w-full border border-rule rounded px-4 py-2.5 pr-10 text-sm font-mono focus:outline-none focus:border-accent transition-colors"
+        oninput="filterPosts(this.value); toggleClear(this.value)"
       />
+      <button
+        id="search-clear"
+        type="button"
+        class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-muted text-lg leading-none hover:text-ink"
+        aria-label="Clear search"
+        onclick="clearSearch()"
+      >
+        ×
+      </button>
     </div>
 
     <!-- Post list -->
@@ -140,6 +149,19 @@
             p.tags.some((t) => t.toLowerCase().includes(q)),
         );
         renderPosts(filtered);
+      }
+
+      function toggleClear(value) {
+        const button = document.getElementById("search-clear");
+        button.classList.toggle("hidden", !value);
+      }
+
+      function clearSearch() {
+        const input = document.getElementById("search");
+        input.value = "";
+        filterPosts("");
+        toggleClear("");
+        input.focus();
       }
 
       function formatDate(dateStr) {
