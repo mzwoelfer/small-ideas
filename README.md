@@ -140,3 +140,11 @@ python3 -m http.server
 ```
 
 Then open `http://localhost:8000`.
+
+## Tests
+
+A minimal unit test exists for the pre-commit hook slugification logic. Run it with:
+
+```bash
+python3 -m unittest tests/test_pre_commit.py
+```

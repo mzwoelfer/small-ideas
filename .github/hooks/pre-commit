@@ -13,6 +13,7 @@ Install:
 import re
 import subprocess
 import sys
+import unicodedata
 from pathlib import Path
 
 WATCHED_DIRS = ("posts/", "assets/")
@@ -22,6 +23,10 @@ def slugify(name: str) -> str:
     stem = Path(name).stem
     suffix = Path(name).suffix.lower()
     slug = stem.lower()
+    slug = slug.replace("ß", "ss")
+    slug = slug.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
+    slug = unicodedata.normalize("NFKD", slug)
+    slug = slug.encode("ascii", "ignore").decode("ascii")
     slug = re.sub(r"[^\w\s-]", "", slug)   # drop special chars (keep hyphens)
     slug = re.sub(r"[\s_]+", "-", slug)     # spaces/underscores → hyphen
     slug = re.sub(r"-+", "-", slug)         # collapse multiple hyphens
