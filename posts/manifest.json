@@ -45,18 +45,6 @@
     "description": "Set the German number formatting (`,` as decimal separator) while keeping the document language in English."
   },
   {
-    "slug": "frankfurter-strasse-107-5200qm-gut-angebunden-einfach-leer",
-    "title": "Frankfurter Straße 107 - 5.200qm gut angebunden einfach leer",
-    "date": "2026-01-02",
-    "tags": [
-      "giessen",
-      "leerstand",
-      "immobilien",
-      "jlu"
-    ],
-    "description": "Die **Frankfurter Straße 107** in Gießen ist ein ehemaliges Universitätsgebäude der Justus-Liebig-Universität (JLU), das seit über einem Jahrzehnt, seit 2012, leer steht."
-  },
-  {
     "slug": "create-a-uuid-using-linux-basic-tools",
     "title": "Create a UUID using Linux basic tools",
     "date": "2025-05-13",
