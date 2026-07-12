@@ -78,18 +78,28 @@ Using [[qPCR]] for screening large sample sets and [[dPCR]] for follow-up quanti
 
 ## SOURCES
 [1] Comparison of PCR Methods (dPCR vs qPCR vs end-point PCR). Qiagen. https://www.qiagen.com/us/knowledge-and-support/knowledge-hub/bench-guide/pcr/digital-pcr/digital-pcr-vs-quantitative-pcr-vs-end-point-pcr
+
 [2] Fundamentals of digital PCR. https://www.qiagen.com/us/knowledge-and-support/knowledge-hub/bench-guide/pcr/digital-pcr/what-is-digital-pcr
+
 [3] Digital PCR and Real-Time PCR (qPCR) Choices for Different Applications. 
 https://www.bio-rad.com/de-de/life-science/learning-center/digital-pcr-and-real-time-pcr-qpcr-choices-for-different-applications
+
 [4] Best Practices in qPCR and dPCR Validation in Regulated Bioanalytical Laboratories. https://www.bioagilytix.com/wp-content/uploads/2023/08/AAPS-Journal_Amanda-Hayes-Article_May-2022.pdf
+
 [5] PCR digital frente a qPCR: ¿Qué tecnología se adapta mejor a su experimento https://unicornlifescience.com/es/digital-pcr-vs-qpcr-technology-best/
+
 [6] Digital PCR vs. Real-Time PCR: Understanding the Key Differences. https://www.labmanager.com/digital-pcr-vs-real-time-pcr-understanding-the-key-differences-33665
+
 [7] PCR Equipment Cost Breakdown: What Labs Actually Pay for qPCR Systems. https://unicornlifescience.com/pcr-equipment-cost-breakdown-labs-actually/
+
 [8] QIAcuity Nanoplates und Zubehör. https://www.qiagen.com/de-de/products/instruments-and-automation/accessories/qiacuity-nanoplates-and-accessories?catno=250021
+
 [9] PCR Plate, 96-Well, ohne Stehrand. https://www.thermofisher.com/order/catalog/product/de/de/AB0600
+
 [10]  Poisson-Verteilung, Stochastik, Wahrscheinlichkeitsverteilung | Mathe by Daniel Jung. https://www.youtube.com/watch?v=UESWARetzXU
 
 [20] Workflow und Produkte für die digitale PCR. https://www.qiagen.com/de-de/applications/digital-pcr/workflow-and-products
+
 [21] QIAcuity Digital PCR System. https://www.qiagen.com/de-de/products/instruments-and-automation/pcr-instruments/qiacuity-digital-pcr-system?catno=911001
 
 
