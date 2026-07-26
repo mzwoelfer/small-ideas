@@ -174,38 +174,64 @@ Cybernews macht auf einer Karte nachvollziehbar welche Städte und Behörden in 
 ## QUELLEN
 
 [1]  Von Microsoft zu Open Source: Wie Schleswig-Holstein den Wechsel schaffen will. 14.02.25. Keywan Tonekaboni. Christian Wölbert. heise: https://www.heise.de/hintergrund/Von-Microsoft-zu-Open-Source-Wie-Schleswig-Holstein-den-Wechsel-schaffen-will-10279400.html (26.07.2026)
+
 [2] Dortmund goes Open Source – Ein großer Erfolg für Nachhaltigkeit in der städtischen IT-Landschaft. 13.03.2021. https://osb-alliance.de/pressemitteilungen/dortmund-goes-open-source (26.07.2026)
+
 [3] Antrag der Fraktionen Bündnis 90/Die Grünen, CDU, Die Linke+ und SPD zum Masterplan „Digitale Verwaltung - Arbeiten 4.0“ (Drucksache Nr.: 18828-20-E5). 19.01.2021. CDU-Fraktion, Fraktion Bündnis 90/Die Grünen, SPD-Fraktion, Fraktion Linke+. Ratsinformationssystem der Stadt Dortmund. https://rathaus.dortmund.de/dosys/gremrech.nsf/0/FA5AAC8313577C44C12586630046E675/$FILE/ZEGMF%2318828-20-E5.doc.pdf (26.07.2026)
+
 [4] Die tragische Geschichte eines Leuchtturm-Projekts. 20.02.2017. Jörg Thoma. Golem. https://www.golem.de/news/limux-die-tragische-geschichte-eines-leuchtturm-projekts-1702-126230.html (26.07.2026)
+
 [5] Local European Municipalities are Spearheading Independence from US Tech. 16.06.2026. https://reset.org/open-source-der-verwaltung-europaische-kommunen-gehen-bei-unabhangigkeit-us-technologien-voran/ (26.07.2026)
+
 [6]  Users of LibreOffice. https://comptoir-du-libre.org/en/softwares/usersSoftware/33 (26.06.2026)
+
 [7] Who uses LibreOffice?. LibreOffice. https://www.libreoffice.org/who-uses-libreoffice/ (26.07.2026)
+
 [8]  Portugal’s Seixal completes switch to LibreOffice. 31.10.2019. Gijs Hillenius. European COmission. https://interoperable-europe.ec.europa.eu/collection/open-source-observatory-osor/news/under-pressure (26.07.2026)
+
 [9] RELATÓRIO & CONTAS 2025. MENSAGEM
 DO EXECUTIVO MUNICIPA. S. 120 - 125. https://www.cm-seixal.pt/sites/default/files/documents/relatorio_e_contas_2025_parte1.pdf (26.07.2026)
+
 [10] Cybernews launcht Tracker für Europas Tech-Autonomie. Cybernews. Eglė Krištopaitytė. 15.07.2026. https://cybernews.com/de/tech/tech-autonomie-tracker/ (26.07.2026)
+
 [11] Lei n.º 36/2011. https://files.dre.pt/1s/2011/06/11800/0359903600.pdf (26.07.2026)
 
 
 [20] Was ist CC? creativecommons.net. https://de.creativecommons.net/was-ist-cc/ (26.07.2026)
+
 [21] Open-Source-Software in Kommunen. November 2023. https://www.iese.fraunhofer.de/content/dam/iese/publikation/smart-cities-open-source-software-in-kommunen-fraunhofer-iese.pdf
+
 [22] https://eur-lex.europa.eu/eli/reg/2023/2854/oj/eng
+
 [23] Data Act - das müssen Unternehmen wissen. IHK München. https://www.ihk-muenchen.de/ratgeber/digitalisierung/datenmanagement/data-act/ (26.07.2026)
+
 [24] Data Act: Was Online-Händler jetzt wissen müssen. https://www.haendlerbund.de/de/ratgeber/recht/data-act (26.07.2026)
+
 [25]  Da­ten­zu­gang und Da­ten­nut­zung. BNetzA. https://www.bundesnetzagentur.de/DE/Fachthemen/Digitales/DataAct/Hintergrund/1-Daten/artikel.html (26.07.2026)
+
 [26] Aktuelle EVB-IT. https://www.digitale-verwaltung.de/Webs/DV/DE/aktuelles-service/it-einkauf/evb-it-und-bvb/aktuelle_evb-it-node.html (26.07.2026)
+
 [27] Vergabeverfahren zur Bereitstellung, Entwicklung und Änderung von Computersoftware Zur Zulässigkeit der Beschränkung eines öffentlichen Auftragsgegenstandes auf „Open Source Software“. Wissenschaftlicher Dienst Bundestag. https://www.bundestag.de/resource/blob/1165534/WD-7-010-26.pdf (26.07.2026)
+
 [28] Bundestags-Gutachten schafft Klarheit: Open-Source-First ist vergaberechtlich zulässig. 16.07.2026. Open Source Business Alliance. https://osb-alliance.de/pressemitteilungen/bundestags-gutachten-schafft-klarheit-open-source-first-ist-vergaberechtlich-zulaessig (26.07.2026)
+
 [29] Open Source als Standard bei IT-Ausschreibungen: Die neuen EVB-IT-Vertragsvorlagen. https://www.bbh-blog.de/allgemein/open-source-als-standard-bei-it-ausschreibungen-die-neuen-evb-it-vertragsvorlagen/ (26.07.2026)
+
 [30]  VERORDNUNG (EU) 2024/2847 DES EUROPÄISCHEN PARLAMENTS UND DES RATES vom 23. Oktober 2024 über horizontale Cybersicherheitsanforderungen für Produkte mit digitalen Elementen und zur Änderung der  Verordnungen (EU) Nr. 168/2013 und (EU) 2019/1020 und der Richtlinie (EU) 2020/1828 (Cyberresilienz-Verordnung). https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202402847 (26.07.2026)
+
 [31] https://opencode.de/de (26.07.2026)
+
 [32] Neue EVB-IT-Vertragsvorlagen stärken die Beschaffung von Open Source Software durch die Verwaltung. https://osb-alliance.de/pressemitteilungen/neue-evb-it-vertragsvorlagen-staerken-die-beschaffung-von-open-source-software-durch-die-verwaltung (26.07.2026)
 
 
 [40] Sechs Städte setzen digitale Impulse. https://www.kommune21.de/k21-meldungen/sechs-staedte-setzen-digitale-impulse/ (26.07.2026)
+
 [41] Digitale Impulse für smarte Städte. https://digitales.hessen.de/presse/digitale-impulse-fuer-smarte-staedte (26.07.2026)
+
 [42] https://www.digitalekommunehessen.de/ikz/ (26.07.2026)
+
 [43] Interkommunale Datenstrategie und Data Governance. Städte Fulda, Gießen, Offenbach am Main & Wetzlar. https://www.digitalekommunehessen.de/wp-content/uploads/2025/02/Interkommunale-Datenstrategie-und-Data-Governance_GI_OF_FD_WZ.pdf (26.07.2026)
+
 [44] Open Smart City. https://www.digitalekommunehessen.de/projekte/open-smart-city/ (26.07.2026)
 
 
